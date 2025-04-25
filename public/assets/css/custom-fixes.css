@@ -1,0 +1,56 @@
+/* Fix for double range slider issue */
+.price-slider-container .slider-track {
+    position: absolute;
+    cursor: pointer;
+    background-color: #ddd;
+    border-radius: 999px;
+}
+
+.price-slider-container .slider.slider-horizontal .slider-track {
+    height: 4px;
+    width: 100%;
+    margin-top: -2px;
+    top: 50%;
+    left: 0;
+}
+
+.price-slider-container .slider-selection {
+    position: absolute;
+    background: #000;
+    border-radius: 999px;
+}
+
+.price-slider-container .slider.slider-horizontal .slider-selection {
+    height: 100%;
+    top: 0;
+    bottom: 0;
+}
+
+.price-slider-container .slider-handle {
+    position: absolute;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #000;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+.price-slider-container .slider.slider-horizontal .slider-handle {
+    margin-left: -8px;
+    margin-top: -6px;
+}
+
+/* Hide only the duplicate slider track */
+.price-slider-container .slider > .slider-track:nth-child(2) {
+    display: none !important;
+}
+
+/* Make sure only one pair of min/max handles is visible */
+.price-slider-container .slider-handle.min-slider-handle:nth-of-type(2),
+.price-slider-container .slider-handle.max-slider-handle:nth-of-type(2) {
+    display: none !important;
+}
+
