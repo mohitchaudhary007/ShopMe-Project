@@ -103,7 +103,7 @@ class AdminController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'slug' => 'required|unique:brands,slug'.$request->id,
+            'slug' => 'required|unique:brands,slug,' . $request->id,
             'image' => 'mimes:png,jpg,jpeg|max:2048'
         ]);
 
@@ -112,7 +112,7 @@ class AdminController extends Controller
         $brand->slug = Str::slug($request->name);
         if($request->hasFile('image'))
         {
-            if(File::exist(public_path('uploads/brands').'/'.$brand->image))
+            if(File::exists(public_path('uploads/brands').'/'.$brand->image))
             {
                 File::delete(public_path('uploads/brands').'/'.$brand->image);
             }
